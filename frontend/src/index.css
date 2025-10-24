@@ -2,49 +2,145 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    margin: 0;
-    font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
 
-code {
-    font-family:
-        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+@layer base {
+  :root {
+    /* Color System - Deep Blue to Ice Blue Cooling Theme */
+    --background: 216 100% 5%;           /* Rich Black FOGRA29 */
+    --foreground: 214 50% 95%;           /* Ice white */
+    
+    --card: 210 100% 8%;                 /* Maastricht Blue */
+    --card-foreground: 214 50% 95%;
+    
+    --primary: 209 100% 32%;             /* USAFA Blue - electric */
+    --primary-foreground: 214 50% 95%;
+    --primary-glow: 180 100% 50%;        /* Cyan highlight */
+    
+    --secondary: 214 50% 63%;            /* Ice Blue */
+    --secondary-foreground: 216 100% 10%;
+    
+    --accent: 180 100% 50%;              /* Pure Cyan */
+    --accent-foreground: 216 100% 10%;
+    
+    --muted: 210 50% 15%;
+    --muted-foreground: 214 30% 70%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 210 50% 20%;
+    --input: 210 50% 15%;
+    --ring: 180 100% 50%;
+    
+    --radius: 0.75rem;
+    
+    /* Custom Design Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(209 100% 32%), hsl(180 100% 50%));
+    --gradient-hero: linear-gradient(180deg, hsl(216 100% 5%) 0%, hsl(210 100% 8%) 50%, hsl(209 80% 15%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(210 90% 10% / 0.5), hsl(209 80% 15% / 0.3));
+    --gradient-ice: linear-gradient(135deg, hsl(214 50% 63%), hsl(180 100% 70%));
+    
+    --shadow-elegant: 0 10px 40px -10px hsl(180 100% 50% / 0.3);
+    --shadow-glow: 0 0 60px hsl(180 100% 50% / 0.4);
+    --shadow-card: 0 8px 32px hsl(216 100% 5% / 0.5);
+    
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
 }
 
 @layer base {
-    [data-debug-wrapper="true"] {
-        display: contents !important;
-    }
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
 
-    [data-debug-wrapper="true"] > * {
-        margin-left: inherit;
-        margin-right: inherit;
-        margin-top: inherit;
-        margin-bottom: inherit;
-        padding-left: inherit;
-        padding-right: inherit;
-        padding-top: inherit;
-        padding-bottom: inherit;
-        column-gap: inherit;
-        row-gap: inherit;
-        gap: inherit;
-        border-left-width: inherit;
-        border-right-width: inherit;
-        border-top-width: inherit;
-        border-bottom-width: inherit;
-        border-left-style: inherit;
-        border-right-style: inherit;
-        border-top-style: inherit;
-        border-bottom-style: inherit;
-        border-left-color: inherit;
-        border-right-color: inherit;
-        border-top-color: inherit;
-        border-bottom-color: inherit;
-    }
+  [data-debug-wrapper="true"] > * {
+    margin-left: inherit;
+    margin-right: inherit;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    column-gap: inherit;
+    row-gap: inherit;
+    gap: inherit;
+    border-left-width: inherit;
+    border-right-width: inherit;
+    border-top-width: inherit;
+    border-bottom-width: inherit;
+    border-left-style: inherit;
+    border-right-style: inherit;
+    border-top-style: inherit;
+    border-bottom-style: inherit;
+    border-left-color: inherit;
+    border-right-color: inherit;
+    border-top-color: inherit;
+    border-bottom-color: inherit;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-ice);
+  }
+  
+  .frost-effect {
+    backdrop-filter: blur(20px) saturate(180%);
+    background: hsl(210 90% 10% / 0.7);
+    border: 1px solid hsl(214 50% 30% / 0.3);
+  }
+  
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent));
 }
