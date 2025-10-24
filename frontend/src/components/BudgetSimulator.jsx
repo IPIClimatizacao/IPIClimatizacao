@@ -29,91 +29,41 @@ export const BudgetSimulator = () => {
     { id: 'cleaning', label: 'Limpeza Técnica', basePrice: 120, icon: '✨' },
   ];
 
-  const environmentTypes = [
-    { id: 'residential', label: 'Residencial', multiplier: 1, icon: '🏠' },
-    { id: 'commercial', label: 'Comercial', multiplier: 1.3, icon: '🏢' },
-    { id: 'industrial', label: 'Industrial', multiplier: 1.8, icon: '🏭' },
-  ];
-
-  const roomSizes = [
-    { id: 'small', label: 'Até 12m² (9000 BTUs)', multiplier: 1 },
-    { id: 'medium', label: '12-20m² (12000 BTUs)', multiplier: 1.3 },
-    { id: 'large', label: '20-30m² (18000 BTUs)', multiplier: 1.8 },
-    { id: 'xlarge', label: '30-45m² (24000 BTUs)', multiplier: 2.3 },
-    { id: 'xxlarge', label: 'Acima de 45m² (30000+ BTUs)', multiplier: 3 },
-  ];
-
-  const infrastructureOptions = [
-    { id: 'yes', label: 'Sim, já tenho tubulação', discount: 0 },
-    { id: 'partial', label: 'Parcial, precisa adequação', discount: -0.15 },
-    { id: 'no', label: 'Não, precisa instalar tudo', discount: -0.3 },
-  ];
-
-  const urgencyOptions = [
-    { id: 'normal', label: 'Normal (7-15 dias)', multiplier: 1 },
-    { id: 'fast', label: 'Rápido (3-7 dias)', multiplier: 1.2 },
-    { id: 'urgent', label: 'Urgente (24-48h)', multiplier: 1.5 },
-  ];
-
-  const brandOptions = [
-    { id: 'any', label: 'Sem preferência' },
-    { id: 'premium', label: 'Marcas Premium (LG, Samsung, Daikin)' },
-    { id: 'midrange', label: 'Custo-benefício (Midea, Electrolux)' },
-    { id: 'economic', label: 'Econômico (Springer, Philco)' },
-  ];
-
   const calculateEstimate = () => {
-    const service = serviceTypes.find(s => s.id === formData.serviceType);
-    const environment = environmentTypes.find(e => e.id === formData.environmentType);
-    const room = roomSizes.find(r => r.id === formData.roomSize);
-    const infrastructure = infrastructureOptions.find(i => i.id === formData.hasInfrastructure);
-    const urgency = urgencyOptions.find(u => u.id === formData.urgency);
+    // Cálculo simples baseado em alguns fatores
+    const basePrice = 500;
+    const quantity = parseInt(formData.quantity) || 1;
+    const total = basePrice * quantity * 1.5; // Multiplicador base
     
-    if (service && environment && room && infrastructure && urgency) {
-      const basePrice = service.basePrice;
-      const envMultiplier = environment.multiplier;
-      const sizeMultiplier = room.multiplier;
-      const infraAdjustment = 1 + infrastructure.discount;
-      const urgencyMultiplier = urgency.multiplier;
-      const quantity = parseInt(formData.quantity) || 1;
-      
-      const total = basePrice * envMultiplier * sizeMultiplier * infraAdjustment * urgencyMultiplier * quantity;
-      
-      setEstimatedPrice(total.toFixed(2));
-      setStep(8);
-    }
+    setEstimatedPrice(total.toFixed(2));
+    setStep(3);
   };
 
   const handleWhatsApp = () => {
     const service = serviceTypes.find(s => s.id === formData.serviceType);
-    const environment = environmentTypes.find(e => e.id === formData.environmentType);
-    const room = roomSizes.find(r => r.id === formData.roomSize);
-    const infrastructure = infrastructureOptions.find(i => i.id === formData.hasInfrastructure);
-    const urgency = urgencyOptions.find(u => u.id === formData.urgency);
-    const brand = brandOptions.find(b => b.id === formData.brand);
     
-    const message = `╔════════════════════════════╗
+    const message = `╔══════════════════════════╗
 ║   SOLICITAÇÃO DE ORÇAMENTO   ║
-╚════════════════════════════╝
+╚══════════════════════════╝
 
 📋 *DETALHES DO SERVIÇO*
 ━━━━━━━━━━━━━━━━━━━━━━━━
-▸ Serviço: *${service?.label}*
-▸ Tipo: *${environment?.label}*
-▸ Ambiente: *${room?.label}*
+▸ Serviço: *${service?.label || 'Não especificado'}*
+▸ Tipo de Ambiente: *${formData.environmentType || 'Não especificado'}*
+▸ Tamanho/BTUs: *${formData.roomSize || 'Não especificado'}*
 ▸ Quantidade: *${formData.quantity} unidade(s)*
 
 🔧 *INFRAESTRUTURA*
 ━━━━━━━━━━━━━━━━━━━━━━━━
-▸ ${infrastructure?.label}
+▸ ${formData.hasInfrastructure || 'Não especificado'}
 
 ⚡ *URGÊNCIA*
 ━━━━━━━━━━━━━━━━━━━━━━━━
-▸ ${urgency?.label}
+▸ ${formData.urgency || 'Não especificado'}
 
 🏷️ *PREFERÊNCIA DE MARCA*
 ━━━━━━━━━━━━━━━━━━━━━━━━
-▸ ${brand?.label}
+▸ ${formData.brand || 'Não especificado'}
 
 👤 *DADOS DO CLIENTE*
 ━━━━━━━━━━━━━━━━━━━━━━━━
@@ -153,7 +103,7 @@ _Simulação feita pelo site IPI Climatização_`;
     setEstimatedPrice(null);
   };
 
-  const totalSteps = 8;
+  const totalSteps = 3;
 
   return (
     <section id="budget" className="py-24 bg-gradient-to-b from-background to-card">
