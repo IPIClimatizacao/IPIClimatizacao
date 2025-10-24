@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { Calculator, ChevronRight, MessageCircle } from 'lucide-react';
+import { Calculator, MessageCircle } from 'lucide-react';
 import { toast } from 'sonner';
 
 export const BudgetSimulator = () => {
