@@ -178,7 +178,7 @@ _Simulação feita pelo site IPI Climatização_`;
                               <span className="text-2xl">{service.icon}</span>
                               <span className="font-medium">{service.label}</span>
                             </div>
-                            <ChevronRight className="w-5 h-5 text-accent" />
+                            <span className="text-accent">→</span>
                           </div>
                         </button>
                       ))}
@@ -186,7 +186,7 @@ _Simulação feita pelo site IPI Climatização_`;
                   </motion.div>
                 )}
 
-                {/* Step 2: Environment Type */}
+                {/* Step 2: Details Form */}
                 {step === 2 && (
                   <motion.div
                     key="step2"
@@ -195,176 +195,32 @@ _Simulação feita pelo site IPI Climatização_`;
                     exit={{ opacity: 0, x: -20 }}
                     className="space-y-4"
                   >
-                    <h3 className="text-xl font-semibold mb-4">Tipo de ambiente</h3>
-                    <div className="grid gap-3">
-                      {environmentTypes.map((env) => (
-                        <button
-                          key={env.id}
-                          onClick={() => {
-                            setFormData({ ...formData, environmentType: env.id });
-                            setStep(3);
-                          }}
-                          className="p-4 rounded-lg border-2 text-left transition-all hover:scale-[1.02] border-border hover:border-primary/50"
-                        >
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                              <span className="text-2xl">{env.icon}</span>
-                              <span className="font-medium">{env.label}</span>
-                            </div>
-                            <ChevronRight className="w-5 h-5 text-accent" />
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                    <Button variant="ghost" onClick={() => setStep(1)} className="w-full">
-                      Voltar
-                    </Button>
-                  </motion.div>
-                )}
-
-                {/* Step 3: Room Size */}
-                {step === 3 && (
-                  <motion.div
-                    key="step3"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    className="space-y-4"
-                  >
-                    <h3 className="text-xl font-semibold mb-4">Tamanho do ambiente</h3>
-                    <div className="grid gap-3">
-                      {roomSizes.map((room) => (
-                        <button
-                          key={room.id}
-                          onClick={() => {
-                            setFormData({ ...formData, roomSize: room.id });
-                            setStep(4);
-                          }}
-                          className="p-4 rounded-lg border-2 text-left transition-all hover:scale-[1.02] border-border hover:border-primary/50"
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="font-medium text-sm">{room.label}</span>
-                            <ChevronRight className="w-5 h-5 text-accent" />
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                    <Button variant="ghost" onClick={() => setStep(2)} className="w-full">
-                      Voltar
-                    </Button>
-                  </motion.div>
-                )}
-
-                {/* Step 4: Infrastructure */}
-                {step === 4 && (
-                  <motion.div
-                    key="step4"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    className="space-y-4"
-                  >
-                    <h3 className="text-xl font-semibold mb-4">Já possui infraestrutura?</h3>
-                    <div className="grid gap-3">
-                      {infrastructureOptions.map((infra) => (
-                        <button
-                          key={infra.id}
-                          onClick={() => {
-                            setFormData({ ...formData, hasInfrastructure: infra.id });
-                            setStep(5);
-                          }}
-                          className="p-4 rounded-lg border-2 text-left transition-all hover:scale-[1.02] border-border hover:border-primary/50"
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="font-medium text-sm">{infra.label}</span>
-                            <ChevronRight className="w-5 h-5 text-accent" />
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                    <Button variant="ghost" onClick={() => setStep(3)} className="w-full">
-                      Voltar
-                    </Button>
-                  </motion.div>
-                )}
-
-                {/* Step 5: Urgency */}
-                {step === 5 && (
-                  <motion.div
-                    key="step5"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    className="space-y-4"
-                  >
-                    <h3 className="text-xl font-semibold mb-4">Qual a urgência?</h3>
-                    <div className="grid gap-3">
-                      {urgencyOptions.map((urg) => (
-                        <button
-                          key={urg.id}
-                          onClick={() => {
-                            setFormData({ ...formData, urgency: urg.id });
-                            setStep(6);
-                          }}
-                          className="p-4 rounded-lg border-2 text-left transition-all hover:scale-[1.02] border-border hover:border-primary/50"
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="font-medium text-sm">{urg.label}</span>
-                            <ChevronRight className="w-5 h-5 text-accent" />
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                    <Button variant="ghost" onClick={() => setStep(4)} className="w-full">
-                      Voltar
-                    </Button>
-                  </motion.div>
-                )}
-
-                {/* Step 6: Brand */}
-                {step === 6 && (
-                  <motion.div
-                    key="step6"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    className="space-y-4"
-                  >
-                    <h3 className="text-xl font-semibold mb-4">Preferência de marca</h3>
-                    <div className="grid gap-3">
-                      {brandOptions.map((brand) => (
-                        <button
-                          key={brand.id}
-                          onClick={() => {
-                            setFormData({ ...formData, brand: brand.id });
-                            setStep(7);
-                          }}
-                          className="p-4 rounded-lg border-2 text-left transition-all hover:scale-[1.02] border-border hover:border-primary/50"
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="font-medium text-sm">{brand.label}</span>
-                            <ChevronRight className="w-5 h-5 text-accent" />
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                    <Button variant="ghost" onClick={() => setStep(5)} className="w-full">
-                      Voltar
-                    </Button>
-                  </motion.div>
-                )}
-
-                {/* Step 7: Contact Info */}
-                {step === 7 && (
-                  <motion.div
-                    key="step7"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    className="space-y-4"
-                  >
-                    <h3 className="text-xl font-semibold mb-4">Seus dados</h3>
+                    <h3 className="text-xl font-semibold mb-4">Detalhes do serviço</h3>
                     <div className="space-y-4">
+                      <div>
+                        <label className="text-sm text-muted-foreground mb-2 block">
+                          Tipo de ambiente
+                        </label>
+                        <Input
+                          type="text"
+                          value={formData.environmentType}
+                          onChange={(e) => setFormData({ ...formData, environmentType: e.target.value })}
+                          placeholder="Ex: Residencial, Comercial, Industrial"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="text-sm text-muted-foreground mb-2 block">
+                          Tamanho do ambiente / BTUs necessário
+                        </label>
+                        <Input
+                          type="text"
+                          value={formData.roomSize}
+                          onChange={(e) => setFormData({ ...formData, roomSize: e.target.value })}
+                          placeholder="Ex: 20m² ou 12000 BTUs"
+                        />
+                      </div>
+                      
                       <div>
                         <label className="text-sm text-muted-foreground mb-2 block">
                           Quantidade de aparelhos
@@ -377,8 +233,47 @@ _Simulação feita pelo site IPI Climatização_`;
                           placeholder="1"
                         />
                       </div>
+                      
                       <div>
-                        <label className="text-sm text-muted-foreground mb-2 block">Nome completo</label>
+                        <label className="text-sm text-muted-foreground mb-2 block">
+                          Já possui infraestrutura/tubulação?
+                        </label>
+                        <Input
+                          type="text"
+                          value={formData.hasInfrastructure}
+                          onChange={(e) => setFormData({ ...formData, hasInfrastructure: e.target.value })}
+                          placeholder="Ex: Sim, Não, Parcial"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="text-sm text-muted-foreground mb-2 block">
+                          Urgência do serviço
+                        </label>
+                        <Input
+                          type="text"
+                          value={formData.urgency}
+                          onChange={(e) => setFormData({ ...formData, urgency: e.target.value })}
+                          placeholder="Ex: Normal, Urgente, Emergencial"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="text-sm text-muted-foreground mb-2 block">
+                          Preferência de marca (opcional)
+                        </label>
+                        <Input
+                          type="text"
+                          value={formData.brand}
+                          onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
+                          placeholder="Ex: LG, Samsung, Daikin"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="text-sm text-muted-foreground mb-2 block">
+                          Seu nome completo
+                        </label>
                         <Input
                           type="text"
                           value={formData.name}
@@ -386,8 +281,11 @@ _Simulação feita pelo site IPI Climatização_`;
                           placeholder="Seu nome completo"
                         />
                       </div>
+                      
                       <div>
-                        <label className="text-sm text-muted-foreground mb-2 block">Telefone</label>
+                        <label className="text-sm text-muted-foreground mb-2 block">
+                          Telefone
+                        </label>
                         <Input
                           type="tel"
                           value={formData.phone}
@@ -395,8 +293,11 @@ _Simulação feita pelo site IPI Climatização_`;
                           placeholder="(11) 99999-9999"
                         />
                       </div>
+                      
                       <div>
-                        <label className="text-sm text-muted-foreground mb-2 block">Endereço</label>
+                        <label className="text-sm text-muted-foreground mb-2 block">
+                          Endereço completo
+                        </label>
                         <Input
                           type="text"
                           value={formData.address}
@@ -405,8 +306,9 @@ _Simulação feita pelo site IPI Climatização_`;
                         />
                       </div>
                     </div>
-                    <div className="flex gap-3">
-                      <Button variant="ghost" onClick={() => setStep(6)} className="flex-1">
+                    
+                    <div className="flex gap-3 pt-4">
+                      <Button variant="ghost" onClick={() => setStep(1)} className="flex-1">
                         Voltar
                       </Button>
                       <Button
@@ -415,16 +317,16 @@ _Simulação feita pelo site IPI Climatização_`;
                         className="flex-1"
                         disabled={!formData.name || !formData.phone || !formData.address}
                       >
-                        Calcular
+                        Calcular Orçamento
                       </Button>
                     </div>
                   </motion.div>
                 )}
 
-                {/* Step 8: Result */}
-                {step === 8 && estimatedPrice && (
+                {/* Step 3: Result */}
+                {step === 3 && estimatedPrice && (
                   <motion.div
-                    key="step8"
+                    key="step3"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
