@@ -19,6 +19,7 @@ export const Navbar = () => {
     { label: 'Início', href: '#hero' },
     { label: 'Serviços', href: '#services' },
     { label: 'Produtos', href: '#products' },
+    { label: 'Trabalhos', href: '#portfolio' },
     { label: 'Orçamento', href: '#budget' },
     { label: 'Contato', href: '#contact' },
   ];

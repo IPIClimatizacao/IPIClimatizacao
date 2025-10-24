@@ -18,6 +18,7 @@ export const Products = () => {
       features: ['Inverter', 'Filtro antibactéria', 'Controle remoto', 'Modo sleep'],
       power: '9000 BTUs',
       category: 'Residencial',
+      image: 'https://images.unsplash.com/photo-1631545806609-7e7992cc7d4c?w=800&q=80',
     },
     {
       id: 2,
@@ -28,6 +29,7 @@ export const Products = () => {
       features: ['Inverter', 'Wi-Fi integrado', 'Filtro HEPA', 'Modo turbo'],
       power: '12000 BTUs',
       category: 'Residencial',
+      image: 'https://images.unsplash.com/photo-1604077350853-8d5e6b61c25d?w=800&q=80',
     },
     {
       id: 3,
@@ -38,6 +40,7 @@ export const Products = () => {
       features: ['Inverter', 'Wi-Fi integrado', 'Modo econômico', 'Timer 24h'],
       power: '18000 BTUs',
       category: 'Comercial',
+      image: 'https://images.unsplash.com/photo-1585412727339-b4d7c6d77ec8?w=800&q=80',
     },
     {
       id: 4,
@@ -48,6 +51,7 @@ export const Products = () => {
       features: ['Inverter', 'Filtro antibactéria', 'Controle por app', 'Modo silencioso'],
       power: '24000 BTUs',
       category: 'Comercial',
+      image: 'https://images.unsplash.com/photo-1613798957828-8e217f83db0d?w=800&q=80',
     },
     {
       id: 5,
@@ -58,6 +62,7 @@ export const Products = () => {
       features: ['Inverter', '4 vias', 'Controle remoto', 'Alta eficiência'],
       power: '36000 BTUs',
       category: 'Industrial',
+      image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80',
     },
     {
       id: 6,
@@ -68,6 +73,7 @@ export const Products = () => {
       features: ['Sistema modular', 'Controle centralizado', 'Alta eficiência', 'Múltiplas zonas'],
       power: 'Variável',
       category: 'Industrial',
+      image: 'https://images.unsplash.com/photo-1635274831853-56b3b0bb5a09?w=800&q=80',
     },
   ];
 
@@ -107,17 +113,21 @@ export const Products = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="h-full flex flex-col hover:shadow-glow transition-all duration-300 hover:scale-105 cursor-pointer group">
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Wind className="w-8 h-8 text-primary-foreground" />
-                    </div>
-                    <div className="flex items-center space-x-1 bg-accent/20 px-3 py-1 rounded-full">
-                      <Star className="w-4 h-4 text-accent fill-accent" />
-                      <span className="text-sm font-semibold">{product.rating}</span>
-                    </div>
+              <Card className="h-full flex flex-col hover:shadow-glow transition-all duration-300 hover:scale-105 cursor-pointer group overflow-hidden">
+                {/* Product Image */}
+                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-muted to-card">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 right-4 flex items-center space-x-1 bg-accent/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                    <Star className="w-4 h-4 text-background fill-background" />
+                    <span className="text-sm font-semibold text-background">{product.rating}</span>
                   </div>
+                </div>
+
+                <CardHeader>
                   <div className="space-y-1">
                     <p className="text-xs text-accent font-medium uppercase">{product.brand}</p>
                     <CardTitle className="text-xl">{product.name}</CardTitle>
