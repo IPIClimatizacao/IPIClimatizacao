@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPI Climatização - Soluções em Refrigeração</title>
+    <meta name="description" content="Especialistas em instalação, manutenção e venda de sistemas de climatização. Soluções completas para seu conforto.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo" onclick="scrollToSection('hero')">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <div>
+                        <h1 class="logo-title">IPI Climatização</h1>
+                        <p class="logo-subtitle">Soluções em Refrigeração</p>
+                    </div>
+                </div>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="#hero" onclick="scrollToSection('hero')">Início</a>
+                    <a href="#services" onclick="scrollToSection('services')">Serviços</a>
+                    <a href="#products" onclick="scrollToSection('products')">Produtos</a>
+                    <a href="#portfolio" onclick="scrollToSection('portfolio')">Trabalhos</a>
+                    <a href="#budget" onclick="scrollToSection('budget')">Orçamento</a>
+                    <a href="#contact" onclick="scrollToSection('contact')">Contato</a>
+                </div>
+                
+                <button class="btn btn-glow" onclick="scrollToSection('budget')">Solicitar Orçamento</button>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <h1 class="hero-title">
+                        Conforto Térmico<br>
+                        <span class="text-gradient">Premium</span>
+                    </h1>
+                    <p class="hero-description">
+                        Especialistas em instalação, manutenção e venda de sistemas de climatização. 
+                        Soluções completas para seu conforto com tecnologia de ponta.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-glow btn-lg" onclick="scrollToSection('budget')">Simular Orçamento</button>
+                        <button class="btn btn-frost btn-lg" onclick="scrollToSection('services')">Nossos Serviços</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number text-gradient">500+</div>
+                            <div class="stat-label">Clientes</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number text-gradient">10+</div>
+                            <div class="stat-label">Anos</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number text-gradient">24/7</div>
+                            <div class="stat-label">Suporte</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="rotating-icon">
+                        <div class="icon-glow"></div>
+                        <svg class="snowflake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2v20M2 12h20M6.5 6.5l11 11M6.5 17.5l11-11"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos <span class="text-gradient">Serviços</span></h2>
+                <p class="section-description">Soluções completas em climatização com equipe especializada</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3 class="service-title">Instalação</h3>
+                    <p class="service-description">Instalação profissional de sistemas de ar condicionado com garantia</p>
+                    <ul class="service-features">
+                        <li>Projeto técnico</li>
+                        <li>Instalação rápida</li>
+                        <li>Garantia estendida</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3 class="service-title">Manutenção</h3>
+                    <p class="service-description">Manutenção preventiva e corretiva para máxima eficiência</p>
+                    <ul class="service-features">
+                        <li>Limpeza completa</li>
+                        <li>Check-up técnico</li>
+                        <li>Troca de filtros</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3 class="service-title">Conserto</h3>
+                    <p class="service-description">Diagnóstico preciso e reparo especializado</p>
+                    <ul class="service-features">
+                        <li>Diagnóstico grátis</li>
+                        <li>Peças originais</li>
+                        <li>Atendimento rápido</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos <span class="text-gradient">Produtos</span></h2>
+                <p class="section-description">Equipamentos de alta qualidade das melhores marcas</p>
+            </div>
+            
+            <div class="products-grid" id="productsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos <span class="text-gradient">Trabalhos</span></h2>
+                <p class="section-description">Confira alguns dos projetos que realizamos com excelência</p>
+            </div>
+            
+            <div class="portfolio-grid" id="portfolioGrid"></div>
+        </div>
+    </section>
+
+    <!-- Budget Simulator -->
+    <section id="budget" class="budget">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Simule seu <span class="text-gradient">Orçamento</span></h2>
+                <p class="section-description">Descubra quanto custa o seu projeto em poucos passos</p>
+            </div>
+            
+            <div class="budget-card">
+                <div class="budget-header">
+                    <div class="budget-icon">🧮</div>
+                    <h3 class="budget-title">Simulador de Orçamento</h3>
+                    <p class="budget-step">Passo <span id="currentStep">1</span> de 3</p>
+                </div>
+                
+                <div class="budget-progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                
+                <div class="budget-content" id="budgetContent">
+                    <!-- Step 1 -->
+                    <div class="step step-1 active" id="step1">
+                        <h3 class="step-title">Qual serviço você precisa?</h3>
+                        <div class="service-options">
+                            <button class="option-btn" onclick="selectService('installation', 'Instalação Completa')">
+                                <span class="option-icon">🔧</span>
+                                <span>Instalação Completa</span>
+                                <span class="arrow">→</span>
+                            </button>
+                            <button class="option-btn" onclick="selectService('maintenance', 'Manutenção Preventiva')">
+                                <span class="option-icon">⚙️</span>
+                                <span>Manutenção Preventiva</span>
+                                <span class="arrow">→</span>
+                            </button>
+                            <button class="option-btn" onclick="selectService('repair', 'Conserto/Reparo')">
+                                <span class="option-icon">🛠️</span>
+                                <span>Conserto/Reparo</span>
+                                <span class="arrow">→</span>
+                            </button>
+                            <button class="option-btn" onclick="selectService('cleaning', 'Limpeza Técnica')">
+                                <span class="option-icon">✨</span>
+                                <span>Limpeza Técnica</span>
+                                <span class="arrow">→</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="step step-2" id="step2">
+                        <h3 class="step-title">Detalhes do serviço</h3>
+                        <div class="form-group">
+                            <label>Tipo de ambiente</label>
+                            <input type="text" id="environmentType" placeholder="Ex: Residencial, Comercial, Industrial">
+                        </div>
+                        <div class="form-group">
+                            <label>Tamanho do ambiente / BTUs necessário</label>
+                            <input type="text" id="roomSize" placeholder="Ex: 20m² ou 12000 BTUs">
+                        </div>
+                        <div class="form-group">
+                            <label>Quantidade de aparelhos</label>
+                            <input type="number" id="quantity" value="1" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label>Já possui infraestrutura/tubulação?</label>
+                            <input type="text" id="infrastructure" placeholder="Ex: Sim, Não, Parcial">
+                        </div>
+                        <div class="form-group">
+                            <label>Urgência do serviço</label>
+                            <input type="text" id="urgency" placeholder="Ex: Normal, Urgente, Emergencial">
+                        </div>
+                        <div class="form-group">
+                            <label>Preferência de marca (opcional)</label>
+                            <input type="text" id="brand" placeholder="Ex: LG, Samsung, Daikin">
+                        </div>
+                        <div class="form-group">
+                            <label>Seu nome completo</label>
+                            <input type="text" id="name" placeholder="Seu nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone</label>
+                            <input type="tel" id="phone" placeholder="(11) 99999-9999" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Endereço completo</label>
+                            <input type="text" id="address" placeholder="Rua, número, bairro, cidade" required>
+                        </div>
+                        <div class="button-group">
+                            <button class="btn btn-ghost" onclick="goToStep(1)">Voltar</button>
+                            <button class="btn btn-glow" onclick="calculateBudget()">Calcular Orçamento</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="step step-3" id="step3">
+                        <div class="result">
+                            <p class="result-label">Valor estimado</p>
+                            <div class="result-price" id="estimatedPrice">R$ 0,00</div>
+                            <p class="result-note">*Valor aproximado. Solicite um orçamento detalhado</p>
+                        </div>
+                        <div class="button-group">
+                            <button class="btn btn-glow btn-lg" onclick="sendWhatsApp()">
+                                💬 Enviar para WhatsApp
+                            </button>
+                            <button class="btn btn-ghost" onclick="resetBudget()">Nova Simulação</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Entre em <span class="text-gradient">Contato</span></h2>
+                <p class="section-description">Estamos prontos para atender você</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h3>Telefone</h3>
+                            <a href="tel:+5511999999999">(11) 99999-9999</a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h3>Email</h3>
+                            <a href="mailto:contato@ipiclimatizacao.com.br">contato@ipiclimatizacao.com.br</a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h3>Endereço</h3>
+                            <p>São Paulo - SP</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h3>Horário</h3>
+                            <p>Seg - Sáb: 8h às 18h</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="whatsapp-cta">
+                    <div class="whatsapp-icon">💬</div>
+                    <h3>Atendimento Rápido</h3>
+                    <p>Fale conosco pelo WhatsApp e receba atendimento personalizado</p>
+                    <button class="btn btn-glow btn-lg" onclick="openWhatsApp()">Abrir WhatsApp</button>
+                    <p class="response-time">Resposta em até <strong>15 minutos</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        <div>
+                            <h3>IPI Climatização</h3>
+                            <p>Soluções em Refrigeração</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">Especialistas em climatização com mais de 10 anos de experiência</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Serviços</h4>
+                    <a href="#services">Instalação</a>
+                    <a href="#services">Manutenção</a>
+                    <a href="#services">Conserto</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <a href="#products">Produtos</a>
+                    <a href="#portfolio">Trabalhos</a>
+                    <a href="#budget">Orçamento</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <a href="tel:+5511999999999">(11) 99999-9999</a>
+                    <a href="mailto:contato@ipiclimatizacao.com.br">contato@ipiclimatizacao.com.br</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 IPI Climatização. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Portfolio -->
+    <div class="modal" id="portfolioModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
