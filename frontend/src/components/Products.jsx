@@ -79,7 +79,7 @@ export const Products = () => {
 
   const handleWhatsAppContact = (product) => {
     const message = `Olá! Gostaria de mais informações sobre o ${product.name} - ${product.brand}`;
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5521970232953?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     toast.success('Redirecionando para o WhatsApp...');
   };

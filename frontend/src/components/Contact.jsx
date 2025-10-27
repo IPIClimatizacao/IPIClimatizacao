@@ -10,13 +10,13 @@ export const Contact = () => {
       icon: Phone,
       title: 'Telefone',
       value: '(11) 99999-9999',
-      link: 'tel:+5511999999999',
+      link: 'tel:+5521970232953',
     },
     {
       icon: Mail,
       title: 'Email',
-      value: 'contato@ipiclimatizacao.com.br',
-      link: 'mailto:contato@ipiclimatizacao.com.br',
+      value: 'Igor.esteves17@gmail.com',
+      link: 'mailto:Igor.esteves17@gmail.com',
     },
     {
       icon: MapPin,
@@ -34,7 +34,7 @@ export const Contact = () => {
 
   const handleWhatsApp = () => {
     const message = 'Olá! Gostaria de mais informações sobre os serviços da IPI Climatização.';
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5521970232953?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 

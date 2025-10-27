@@ -24,8 +24,8 @@ export const Footer = () => {
     {
       title: 'Contato',
       links: [
-        { label: '(11) 99999-9999', href: 'tel:+5511999999999' },
-        { label: 'contato@ipiclimatizacao.com.br', href: 'mailto:contato@ipiclimatizacao.com.br' },
+        { label: '(21) 97023-2953', href: 'tel:+5521970232953' },
+        { label: 'Igor.esteves17@gmail.com', href: 'mailto:Igor.esteves17@gmail.com' },
       ],
     },
   ];
