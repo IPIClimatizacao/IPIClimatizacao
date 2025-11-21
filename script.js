@@ -277,7 +277,7 @@ function renderProducts() {
     const grid = document.getElementById('productsGrid');
     grid.innerHTML = products.map(product => `
         <div class="product-card">
-            <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='https://via.placeholder.com/400x200?text=${product.name}'">
+            <img src="${encodeURI(product.image)}" alt="${product.name}" class="product-image" onerror="this.src='https://via.placeholder.com/400x200?text=${encodeURIComponent(product.name)}'">
             <div class="product-content">
                 <div class="product-brand">${product.brand}</div>
                 <h3 class="product-name">${product.name}</h3>
@@ -299,7 +299,7 @@ function renderPortfolio() {
     const grid = document.getElementById('portfolioGrid');
     grid.innerHTML = portfolioItems.map(item => `
         <div class="portfolio-item" onclick="openPortfolioModal('${item.title}', '${item.description}', '${item.image}')">
-            <img src="${item.image}" alt="${item.title}" class="portfolio-image" onerror="this.src='https://via.placeholder.com/400?text=${item.title}'">
+            <img src="${encodeURI(item.image)}" alt="${item.title}" class="portfolio-image" onerror="this.src='https://via.placeholder.com/400?text=${encodeURIComponent(item.title)}'">
             <div class="portfolio-badge">${item.category}</div>
             <div class="portfolio-overlay">
                 <div>
